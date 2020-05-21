@@ -1,0 +1,20 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+<h2>{{ title }}.</h2>
+<h3>{{ message }}</h3>
+
+<address>
+    Мы находимся в городе Киров, Кировская обл., Россия. <br />
+    Студенческий проезд, дом 12<br />
+    <abbr title="Phone">P:</abbr>
+    8-800-555-35-35
+</address>
+
+<address>
+    <strong>Мастерская:</strong>   <a href="mailto:repair@vse-po-chesnoku.ru">repair@vse-po-chesnoku.ru</a><br />
+    <strong>Предложения по поводу активности клуба:</strong> <a href="mailto:social@vse-po-chesnoku.ru">social@vse-po-chesnoku.ru</a>
+</address>
+
+{% endblock %}

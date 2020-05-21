@@ -1,0 +1,114 @@
+﻿{% extends "app/layout.html" %}
+{% block content %}
+{% if form != None %}
+<br><h2>Предложите что нибудь или сообщите об ошибке:</h2><br>
+<div>
+    <form method="post">
+        {% csrf_token %}
+        <label for="{{ form.name.id_for_label }}">{{ form.name.label }}:</label>
+        {{ form.name }}<br>
+        <label for="{{ form.city.id_for_label }}">{{ form.city.label }}:</label>
+        {{ form.city }}<br>
+        <label for="{{ form.gender.id_for_label }}">{{ form.gender.label }}:</label>
+        {{ form.gender }}
+        <label for="{{ form.usage.id_for_label }}">{{ form.usage.label }}:</label>
+        {{ form.usage }}<br>
+        <label for="{{ form.notice.id_for_label }}">{{ form.notice.label }}:</label>
+        {{ form.notice }}<br>
+        <label for="{{ form.email.id_for_label }}">{{ form.email.label }}:</label>
+        {{ form.email }}<br>
+        <label for="{{ form.message.id_for_label }}">{{ form.message.label }}:</label>
+        {{ form.message }}<br>
+
+        <input id="sub1" type="submit" value="Отправить" style="color:black">
+    </form>
+</div>
+{% else %}
+<br><h2>Благодарим за ваш отзыв, нам будет полезно почитать!</h2>
+<h3>Вы сообщили следующую информацию, она будет записана и обработана</h3>
+<ul>
+    <li><span>Имя: </span>{{ data.name }}</li>
+    <li><span>Город: </span>{{ data.city }}</li>
+    <li><span>Пол: </span>{{ data.gender }}</li>
+    <li><span>Владеете passat b3: </span>{{ data.usage }}</li>
+    <li><span>Получить ответ от нас: </span>{{ data.notice }}</li>
+    <li><span>Ваш e-mail: </span>{{ data.email }}</li>
+    <li><span>Ваш текст: </span>{{ data.message }}</li>
+
+</ul>
+{% endif %}
+<script>
+    function changeSubmitColorRed()
+    {
+        $('#sub1').prop('style', 'color:red');
+    }
+    function changeSubmitColorBlack()
+    {
+        $('#sub1').prop('style', 'color:black');
+    }
+    function changeColorOnFocusNameActive()
+    {
+        $('#id_name').css('background-color', 'lightgoldenrodyellow');
+    }
+    function changeColorOnFocusNameUnactive()
+    {
+        $('#id_name').css('background-color', 'white');
+    }
+    function changeColorOnFocusCityActive()
+    {
+        $('#id_city').css('background-color', 'lightgoldenrodyellow');
+    }
+    function changeColorOnFocusCityUnactive()
+    {
+        $('#id_city').css('background-color', 'white');
+    }
+    function changeColorOnFocusGenderActive()
+    {
+        $('#id_gender').css('background-color', 'lightgoldenrodyellow');
+    }
+    function changeColorOnFocusGenderUnactive()
+    {
+        $('#id_gender').css('background-color', 'white');
+    }
+    function changeColorOnFocusUsageActive()
+    {
+        $('#id_usage').css('background-color', 'lightgoldenrodyellow');
+    }
+    function changeColorOnFocusUsageUnactive()
+    {
+        $('#id_usage').css('background-color', 'white');
+    }
+    function changeColorOnFocusEmailActive()
+    {
+        $('#id_email').css('background-color', 'lightgoldenrodyellow');
+    }
+    function changeColorOnFocusEmailUnactive()
+    {
+        $('#id_email').css('background-color', 'white');
+    }
+    function changeColorOnFocusMessageActive()
+    {
+        $('#id_message').css('background-color', 'lightgoldenrodyellow');
+    }
+    function changeColorOnFocusMessageUnactive()
+    {
+        $('#id_message').css('background-color', 'white');
+    }
+
+
+    $('#sub1').mouseover(changeSubmitColorRed);
+    $('#sub1').mouseout(changeSubmitColorBlack);
+    $('#id_name').focus(changeColorOnFocusNameActive);
+    $('#id_name').blur(changeColorOnFocusNameUnactive);
+    $('#id_city').focus(changeColorOnFocusCityActive);
+    $('#id_city').blur(changeColorOnFocusCityUnactive);
+    $('#id_gender').focus(changeColorOnFocusGenderActive);
+    $('#id_gender').blur(changeColorOnFocusGenderUnactive); 
+    $('#id_usage').focus(changeColorOnFocusUsageActive);
+    $('#id_usage').blur(changeColorOnFocusUsageUnactive);
+    $('#id_email').focus(changeColorOnFocusEmailActive);
+    $('#id_email').blur(changeColorOnFocusEmailUnactive);
+    $('#id_message').focus(changeColorOnFocusMessageActive);
+    $('#id_message').blur(changeColorOnFocusMessageUnactive);
+</script>
+{% endblock %}
